@@ -1,9 +1,37 @@
 // Login.js
 import React, { useState } from "react";
+import { database } from "./firebaseconfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { useNavigate } from "react-router-dom";
+
+
 
 const Login = () => {
+    // const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const clickForSubmit = async (e) => {
+    e.preventDefault()
+   
+    await createUserWithEmailAndPassword(database, email, password)
+      .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          alert(user,"congratulations login successfully")
+        //   console.log(user);
+        
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+      });
+
+ 
+  }
 
   return (
     <div className=" xl:items-center xl:flex xl:flex-col xl:justify-center  xl:p-10 xl:m-auto xl:pt-44">
@@ -14,14 +42,24 @@ const Login = () => {
           <input
             type="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="xl:outline-none xl:p-2 xl:m-2"
+            required
           />
           <input
             type="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="xl:outline-none xl:p-2 xl:m-2"
+            required
           />
-          <button type="submit" className="xl:bg-white xl:p-2 xl:m-2">
+          <button
+            type="submit"
+            className="xl:bg-white xl:p-2 xl:m-2 xl:rounded-md xl:hover:bg-blue-200"
+            onClick={clickForSubmit}
+          >
             Login
           </button>
         </form>
