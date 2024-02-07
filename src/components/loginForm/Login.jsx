@@ -1,31 +1,9 @@
 // Login.js
 import React, { useState } from "react";
-import { database } from "../../firebaseconfig";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-
+import LoginButton from "../CustomButton/LoginButton";
 const Login = () => {
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const clickForSubmit = async (e) => {
-    navigate("/signup");
-    e.preventDefault();
-
-    await createUserWithEmailAndPassword(database, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert(user, "congratulations login successfully");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        // ..
-      });
-  };
 
   return (
     <div className=" xl:items-center xl:flex xl:flex-col xl:justify-center  xl:p-10 xl:m-auto xl:pt-44">
@@ -49,13 +27,8 @@ const Login = () => {
             className="xl:outline-none xl:p-2 xl:m-2"
             required
           />
-          <button
-            type="text"
-            className="xl:bg-white xl:p-2 xl:m-2 xl:rounded-md xl:hover:bg-blue-200"
-            onClick={clickForSubmit}
-          >
-            Login
-          </button>
+
+          <LoginButton />
         </form>
       </div>
     </div>

@@ -3,13 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  const goback = () => {
-    navigate("/signup");
+  const forLoginpage = () => {
+    navigate("/login");
   };
+
+  const forSignup=()=>{
+    navigate('/signup')
+  }
   return (
     <>
-      <div>Home</div>
-      <button onClick={goback}>goBack</button>
+      <button onClick={forLoginpage}>Login</button>
+      <button onClick={forSignup}>SignUp</button>
     </>
   );
 }
