@@ -42,10 +42,10 @@ function Signup() {
           required
           className="xl:p-2 xl:m-2 "
         />
-        <p className="xl:text-center xl:text-xl xl:font-thin">
-          Already a member?<button onClick={gotologin}>Log In</button>
-        </p>
-        <SignupButton />
+        <button onClick={gotologin}>
+          {" "}
+          <SignupButton />
+        </button>
       </div>
     </div>
   );

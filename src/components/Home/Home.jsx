@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import LoginButton from "../CustomButton/LoginButton";
+import SignupButton from "../CustomButton/SignupButton";
 
 function Home() {
   const navigate = useNavigate();
@@ -7,14 +9,14 @@ function Home() {
     navigate("/login");
   };
 
-  const forSignup=()=>{
-    navigate('/signup')
-  }
+  const forSignup = () => {
+    navigate("/signup");
+  };
   return (
-    <>
-      <button onClick={forLoginpage}>Login</button>
-      <button onClick={forSignup}>SignUp</button>
-    </>
+    <div className="xl:bg-yellow-900">
+      <LoginButton onClick={forLoginpage} />
+      <SignupButton onclick={forSignup} />
+    </div>
   );
 }
 

@@ -1,8 +1,9 @@
 import "./App.css";
 import React from "react";
-import Login from "./components/loginForm/Login";
+
 import Signup from "./components/Signup/Signup";
-import Home from "./components/Home/Home";
+import Login from "./components/loginForm/Login";
+import Error from "./components/pages/Error";
 import {
   BrowserRouter,
   Routes,
@@ -13,10 +14,20 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
+
     element: (
       <>
-        <Home />
+        <Error />
+      </>
+    ),
+  },
+  {
+    path: "/",
+
+    element: (
+      <>
+        <Login />
       </>
     ),
   },
@@ -43,6 +54,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      {/* <Signup /> */}
     </>
   );
 }

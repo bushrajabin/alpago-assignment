@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 function SignupButton() {
   const navigate = useNavigate();
   const SignUp = () => {
-    navigate("/home");
+    navigate("/signup");
   };
   return (
     <>
       <button
-        className=" xl:hover:bg-black xl:hover:text-white xl:p-3 xl:w-24 xl:ml-32 xl:mt-6 xl:rounded-sm"
+        className=" xl:hover:bg-black xl:hover:text-white xl:bg-white xl:text-black xl:p-3 xl:w-24  xl:rounded-sm"
         onClick={SignUp}
       >
         SignUp
