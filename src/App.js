@@ -1,62 +1,31 @@
 import "./App.css";
 import React from "react";
-
-import Signup from "./components/Signup/Signup";
-import Login from "./components/loginForm/Login";
 import Error from "./components/pages/Error";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/Home/Home";
+import CustomForm from "./components/Forms/CustomForm";
 
 const router = createBrowserRouter([
   {
     path: "*",
-
-    element: (
-      <>
-        <Error />
-      </>
-    ),
+    element: <Error />,
   },
   {
     path: "/",
-
-    element: (
-      <>
-        <Login />
-      </>
-    ),
+    element: <Home />,
   },
   {
     path: "/signup",
-
-    element: (
-      <>
-        <Signup />
-      </>
-    ),
+    element: <CustomForm />,
   },
   {
     path: "/login",
-    element: (
-      <>
-        <Login />
-      </>
-    ),
+    element: <CustomForm />,
   },
 ]);
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-      {/* <Signup /> */}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

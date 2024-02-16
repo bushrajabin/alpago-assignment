@@ -1,21 +1,22 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import LoginButton from "../CustomButton/LoginButton";
-import SignupButton from "../CustomButton/SignupButton";
+import React, { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
+const authToken= localStorage.getItem('authToken')
 
 function Home() {
-  const navigate = useNavigate();
-  const forLoginpage = () => {
-    navigate("/login");
-  };
+  const navigate = useNavigate()
+  const location = useLocation();
 
-  const forSignup = () => {
-    navigate("/signup");
-  };
+  useEffect(()=>{
+    if(!authToken){
+        navigate('/signup')
+    }
+
+    console.log(location.pathname);
+  },[])
   return (
     <div className="xl:bg-yellow-900">
-      <LoginButton onClick={forLoginpage} />
-      <SignupButton onclick={forSignup} />
+    <h1>You log in successfully</h1>
     </div>
   );
 }
