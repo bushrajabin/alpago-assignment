@@ -38,26 +38,26 @@ const CustomForm = () => {
   };
 
   return (
-    <div className="  xl:pb-20 xl:flex xl:flex-col xl:m-auto xl:pt-20 xl:items-center">
-      <div className="xl:text-xl">
-        <h1 className="xl:text-2xl xl:font-serif">
+    <div className="  flex flex-col  xl:pb-2 xl:flex xl:flex-col xl:m-auto xl:pt-20 xl:items-center ">
+      <div className=" pt-6  bg-green-800 flex flex-col p-4 items-center text-1xl xl:text-xl  xl:flex xl:flex-col xl:items-center xl:p-2">
+        <h1 className=" text-2xl xl:text-2xl xl:font-serif">
           {currentPath === "/login" ? "Login Form" : "SignUp Form"}
         </h1>
-        <p className="xl:text-xl xl:font-thin">
+        <p className=" text-xl xl:text-xl xl:font-thin">
           {currentPath === "/login"
             ? "Login To Your Account!"
             : "Fill in this form to create an acccount."}
         </p>
       </div>
 
-      <div className="xl:bg-blue-300 xl:flex xl:flex-col xl:m-10  xl:p-5 xl:rounded-lg xl:shadow-xl w-96">
+      <div className="  bg-blue-500 p-2 mt-10  flex flex-col xl:bg-blue-300 xl:flex xl:flex-col xl:m-10  xl:p-5 xl:rounded-lg xl:shadow-xl xl:w-96">
         {currentPath === "/signup" && (
           <>
             <input
               type="text"
               placeholder="First Name"
               required
-              className="xl:p-2 xl:m-2 xl:border-b-slate-800"
+              className=" m-1 p-2 xl:p-2 xl:m-2 xl:border-b-slate-800"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
@@ -66,7 +66,7 @@ const CustomForm = () => {
               type="text"
               placeholder="Last Name"
               required
-              className="xl:p-2 m-2 "
+              className=" m-1 p-2 xl:p-2 xl:m-2 "
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -76,7 +76,7 @@ const CustomForm = () => {
           type="email"
           placeholder="Email"
           required
-          className="xl:p-2 xl:m-2 "
+          className=" m-1 p-2 xl:p-2 xl:m-2 "
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -84,7 +84,7 @@ const CustomForm = () => {
           type="password"
           placeholder="Password"
           required
-          className="xl:p-2 xl:m-2 "
+          className="m-1 p-2 xl:p-2 xl:m-2 "
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -94,7 +94,7 @@ const CustomForm = () => {
             type="password"
             placeholder="Confirm password"
             required
-            className="xl:p-2 xl:m-2 "
+            className=" m-1 p-2 xl:p-2 xl:m-2 "
             value={cPassword}
             onChange={(e) => setCPassword(e.target.value)}
           />
