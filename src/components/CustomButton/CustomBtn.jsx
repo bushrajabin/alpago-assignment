@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
+import "react-toastify/dist/ReactToastify.css";
+const CustomBtn = ({ title, onClickFn }) => {
 
-const CustomBtn = ({title,onClickFn}) => {
   return (
-    <div className=' bg-white rounded-md mt-2  flex flex-row items-center text-center justify-center p-2 w-28 m-auto  xl:flex xl:flex-row xl:justify-center'>
-    <button
-      type="button"
-      className="  xl:bg-white xl:p-2 xl:m-2 xl:rounded-md xl:hover:bg-blue-200 xl:w-24 xl:flex xl:flex-row xl:justify-center"
-      onClick={onClickFn}
-    >
-      {title}
-    </button>
-  </div>  )
-}
+    <div className=" bg-white rounded-md flex flex-row items-center text-center justify-center m-auto xl:flex xl:flex-row xl:justify-center  xl:p-2 xl:hover:bg-blue-200 ">
+      <button
+        type="button"
+        className="   xl:rounded-md  xl:flex xl:flex-row xl:justify-center"
+        onClick={onClickFn}
+      >
+        {title}
+      </button>
+    </div>
+  );
+};
 
-export default CustomBtn
+export default CustomBtn;
