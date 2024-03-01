@@ -4,7 +4,6 @@ import CustomBtn from "../CustomButton/CustomBtn";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-
 const CustomForm = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,11 +16,9 @@ const CustomForm = () => {
 
     function onLogin() {
         if (email === "" || password == "") {
-            alert("Please fill!!!");
+            toast.error("Please fill !!!");
         } else {
-            // alert("login clicked!!!");
-            navigate("/congPage");
-            toast("Wowww lpgin")
+            toast.success("Login-successfully!!");
         }
     }
 
@@ -33,12 +30,11 @@ const CustomForm = () => {
             password === "" ||
             cPassword === ""
         ) {
-            alert("Please fill");
-        }
-        else if(cPassword!=password ){
-            alert("Password does not match")
+            toast.error("All fields are required");
+        } else if (cPassword != password) {
+            toast.warn("Password does not match");
         } else {
-            toast("Wowww signup")
+            toast.success("Signup succesfully!!");
             navigate("/login");
         }
     };
@@ -109,9 +105,8 @@ const CustomForm = () => {
                 <CustomBtn
                     title={currentPath === "/login" ? "Login Now" : "SignUp"}
                     onClickFn={currentPath === "/login" ? onLogin : onSignUp}
-                 
                 />
-                   <ToastContainer />
+                <ToastContainer />
             </div>
         </div>
     );
